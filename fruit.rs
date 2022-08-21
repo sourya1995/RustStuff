@@ -22,7 +22,12 @@ fn main(){
 
     count_fruit(fruit); //owner changed to count_fruit --MOVE
 
-    let price = price_fruit(fruit); //we're using a moved value, something we don't own
+
+    let fruit2 = Fruit{
+        apples: 7,
+        bananas: 9
+    };
+    let price = price_fruit(fruit2); //we're using a moved value, something we don't own
     println!("I can make {} cents", price);
 
 }
