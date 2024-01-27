@@ -1,8 +1,12 @@
+use std::env;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
 fn main() {
-    let file = File::open("somefile.txt");
+    let args: Vec<String> = env::args().collect();
+    let file_path = &args[1];
+
+    let file = File::open(file_path);
     let file = match file {
         Ok(file) => file,
         Err(error) => {
